@@ -1,0 +1,95 @@
+<html><meta charset='UTF-8'/><meta content='width=device-width, initial-scale=1, user-scalable=1, minimum-scale=1, maximum-scale=5' name='viewport'/><meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet"><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script><link href="https://kenapa.feeldream.repl.co/style.css" rel="stylesheet" type="text/css" /><script src="https://kenapa.feeldream.repl.co/script.js"></script>
+<head>
+<title>Script HTML Kenapa Lebah Bikin Madu</title>
+
+</head>
+<!-- Edit Wallpaper 
+di background-image URL --><style>
+:root {
+--warna-bg: rgba(0, 0, 0, 0); 
+--warna-teks: white;
+--warna-bingkai: rgba(255, 255, 255, .5);
+--bingkai: 16px;
+--gaya-font: 'Ubuntu', sans-serif;
+}
+body{background-image: url("https://kenapa.feeldream.repl.co/wp.jpg");background-repeat: no-repeat;background-size: 110% 110%;animation:none;transition:all .3s ease;}
+@keyframes fanim {0% {background-position: 0% 0%;}25% {background-position: 100% 100%;} 50% {background-position: 0% 100%;} 75% {background-position: 50% 50%;} 100% {background-position: 0% 0%;}}
+</style>
+<body>
+   <div id="bodyblur"></div>
+
+   <div id='Content'><p id="idgeser"></p>
+
+   <div><blockquote id='bq'><img id="foto1" src=""/><img id="foto2" src=""/><div><marquee id="imglewat" direction="right"><img id="fotonimasi" src="" width="130px" height="130px"/></marquee></div><p id="katawal"></p><p id="katakata">...</p><p id="katabawah"></p><p id="katakhir"></p><p id="akhiran" onClick="menuju();">[ Jawab ]</p></blockquote></div>
+
+   <div id="contTom"><a id="By" class='button' onClick="sjawab()"></i>Klik Ini</a></div>
+   </div>
+
+<!-- Jangan Edit Bagian Ini --><script>
+  function showDiv() {setTimeout(setel,50);setTimeout(otomatis,3000);setTimeout(playkata, 5600);setTimeout(playkata, 7000);setTimeout(playkata, 8000);setTimeout(StartMarqueeL, 7400);setTimeout(kpemb,100);document.getElementById('Content').style = "opacity:1;margin-top:4vh;animation:kont 5s infinite;";bodyblur.style = "-webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px);";document.querySelector("body").style.animation = "fanim 8s ease infinite";} function kpemb() {document.getElementById("idgeser").style = "display:none";document.getElementById("bq").style = "opacity:1;visibility:visible;margin-top:0";}
+  function loadfoto() {foto1.src = gambar1;foto2.src = gambar2;fotonimasi.src = fotogerak;} function StartMarqueeL(){var marquee = document.getElementById ("imglewat");marquee.start();} function showlewat(){imglewat.style="opacity:1;height:170px;";} function StopMarqueeL(){var marquee = document.getElementById ("imglewat");marquee.stop();}StopMarqueeL();
+  function tombol(){contTom.style="margin:0;opacity:1;";ftom=1;} ftom=0; function fakhiran(){document.getElementById("akhiran").style = "display:inline-flex";}
+  function otomatis() {if(pkata==0){katakata.innerHTML = kata1;pkata+=1;}befanimkata();setTimeout(animkata,200);} function befanimkata(){katakata.style="transform:scale(.1);";} function animkata() {katakata.style="transform:scale(1);";} function animakhir() {akhiran.style="display:block;";}
+  const swals = Swal.mixin({allowOutsideClick: false, cancelButtonColor: '#FF0040',}); const swalsy = Swal.mixin({confirmButtonText: 'Iya', allowOutsideClick: false,}); const swalst = Swal.mixin({allowOutsideClick: false, showConfirmButton: false, timer: 1500, timerProgressBar: true, didOpen: () => {Swal.showLoading();const b = Swal.getHtmlContainer().querySelector('b');timerInterval = setInterval(() => {Swal.getTimerLeft()}, 100)},willClose: () => {clearInterval(timerInterval)}}); const style = document.createElement('style'); var today = new Date();var dd = String(today.getDate()).padStart(2, '0');var mm = String(today.getMonth() + 1).padStart(2, '0');var yyyy = today.getFullYear();const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];today = dd + ' ' + monthNames[today.getMonth()] + ' ' + yyyy;
+  function play() {var audio = new Audio('');audio.play();} function sjawab(){if(ftom==1){contTom.style="display:none";katawal.innerHTML = "";katakhir.innerHTML = "";katakata.innerHTML = "";katabawah.innerHTML = "";katakata.style="font-size:15px;font-weight:400";jawab();}}
+  function fullakhir(){pkata=1;fungsi=3;foto2.style="display:none";akhiran.innerHTML="Kirim Pesan";katawal.innerHTML = katakhir;katakata.innerHTML = katakhirb;setTimeout(fakhiran,2000);contTom.style="display:none";}
+  function katiga() {foto2.style="display:none";}
+  fungsi=1;function setel(){audio.play();} function setel2(){bgm.play();} 
+  function tpkata(){pkata+=1;} pkata=0;function showktbwh(){katabawah.style="animation:rto 1s infinite alternate;";}
+  function playkata(){
+     if(pkata==1){otomatis();katakata.innerHTML = kata1b;}
+     if(pkata==2){otomatis();foto1.style="display:none";foto2.style="display:inline-flex";katakata.innerHTML = kata1c;}
+     if(pkata==3){katakata.innerHTML = kata1c;katabawah.innerHTML = kata1d;foto2.style="display:none";showlewat();katiga();setTimeout(showktbwh,30);setTimeout(tombol,3200);}
+     setTimeout(tpkata, 300);
+  }
+       async function menuju(){await swals.fire('Kirim pesan ke WhatsApp aku, ya!');window.location = "https://api.whatsapp.com/send?phone=&text=" + pesanwhatsapp;}
+       async function jawab(){
+           var { value: jawaban } = await swals.fire({
+               title: 'Ketik jawabanmu &#128073;&#128072;', 
+               input: 'text', allowOutsideClick: false, showCancelButton: false,
+           });
+           if(jawaban && jawaban.length < 19){
+           	window.jawaban = jawaban;
+               pesanwhatsapp = jawaban;
+               katakhir = "Jawabanmu: " + jawaban;
+               fullakhir();
+           } else {
+               await swals.fire('Ups!', 'Jawaban tidak boleh kosong atau lebih dari 18 karakter, ya!');
+           }
+       }
+
+      async function apapun() {
+         await swals.fire('Pesan Buat Kamu!', 'Volume-nya besarin ya :)');
+         setTimeout(showDiv,100);
+      }
+</script> <!-- Sampai Sini -->
+
+<!-- Ganti Kata², Foto, Lagu di bawah ya
+1) Upload foto ke https://postimages.org
+     buat dapetin linknya
+2) Ganti Lagu Upload ke replit.com
+     atau bisa juga ke mailboxdrive.com -->
+
+<script type="text/javascript">
+      async function pertama(){
+         audio = new Audio('https://kenapa.feeldream.repl.co/lebah.mp3'); backupaudio = new Audio('LINK');
+         
+         gambar1 = "https://kenapa.feeldream.repl.co/yes.gif";
+         gambar2 = "https://kenapa.feeldream.repl.co/mesem.png";
+         fotogerak = "https://kenapa.feeldream.repl.co/gerak.gif";
+         loadfoto();
+         
+         kata1 = "Kenapa Lebah Bikin Madu?";
+         kata1b = "Ya Karna Kalo Bikin Jatuh Cinta,";
+         kata1c = "Itu kan kamu <3";
+         kata1d = "Hehe &#129325;";
+         
+         katakhirb = "Kirim ke WhatsApp ya~";
+
+         await swalst.fire('Tunggu');apapun();
+       }
+       pertama();
+</script>
+</body>
+</html>
